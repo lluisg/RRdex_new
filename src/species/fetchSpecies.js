@@ -2,6 +2,9 @@ async function getSpecies(species){
     footerP("Fetching species")
     const rawSpecies = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/species.h`)
     const textSpecies = await rawSpecies.text()
+    console.log(`${repo}`)
+    console.log(rawSpecies)
+
 
     return await regexSpecies(textSpecies, species)
 }
