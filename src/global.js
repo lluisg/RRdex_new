@@ -1,4 +1,5 @@
 window.repo = "lluisg/RRdex_new"
+window.main = "https://raw.githubusercontent.com/lluisg/RRdex_new/main"
 
 window.tracker
 window.panelSpecies = ""

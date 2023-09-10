@@ -1,6 +1,6 @@
 async function getSpecies(species){
     footerP("Fetching species")
-    const rawSpecies = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/species.h`)
+    const rawSpecies = await fetch(`${main}/data/species/species.h`)
     const textSpecies = await rawSpecies.text()
 
     return await regexSpecies(textSpecies, species)
@@ -8,16 +8,16 @@ async function getSpecies(species){
 
 
 async function getBaseStats(species){
-    const rawBaseStats = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Base_Stats.c`)
+    const rawBaseStats = await fetch(`${main}/data/species/Base_Stats.c`)
     const textBaseStats = await rawBaseStats.text()
     return await regexBaseStats(textBaseStats, species)
 }
 
 async function getLevelUpLearnsets(species){
-    const rawLevelUpLearnsets = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Learnsets.c`)
+    const rawLevelUpLearnsets = await fetch(`${main}/data/species/Learnsets.c`)
     const textLevelUpLearnsets = await rawLevelUpLearnsets.text()
 
-    const rawLevelUpLearnsetsPointers = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Learnsets.c`)
+    const rawLevelUpLearnsetsPointers = await fetch(`${main}/data/species/Learnsets.c`)
     const textLevelUpLearnsetsPointers = await rawLevelUpLearnsetsPointers.text()
 
 
@@ -28,21 +28,21 @@ async function getLevelUpLearnsets(species){
 }
 
 async function getTMHMLearnsets(species){
-    const rawTMHMLearnsets = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/TM_Tutor_Tables.c`)
+    const rawTMHMLearnsets = await fetch(`${main}/data/species/TM_Tutor_Tables.c`)
     const textTMHMLearnsets = await rawTMHMLearnsets.text()
 
     return await regexTMHMLearnsets(textTMHMLearnsets, species, "gTMHMMoves", "gMoveTutorMoves")
 }
 
 async function getTutorLearnsets(species){
-    const rawTutorLearnsets = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/TM_Tutor_Tables.c`)
+    const rawTutorLearnsets = await fetch(`${main}/data/species/TM_Tutor_Tables.c`)
     const textTutorLearnsets = await rawTutorLearnsets.text()
 
     return await regexTutorLearnsets(textTutorLearnsets, species, "gMoveTutorMoves", "gTMHMMoves")
 }
 
 async function getEvolution(species){
-    const rawEvolution = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Evolution%20Table.c`)
+    const rawEvolution = await fetch(`${main}/data/species/Evolution%20Table.c`)
     const textEvolution = await rawEvolution.text()
 
     return await regexEvolution(textEvolution, species)
@@ -56,21 +56,21 @@ async function getForms(species){
 }
 
 async function getEggMovesLearnsets(species){
-    const rawEggMoves = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Egg_Moves.c`)
+    const rawEggMoves = await fetch(`${main}/data/species/Egg_Moves.c`)
     const textEggMoves = await rawEggMoves.text()
 
     return await regexEggMovesLearnsets(textEggMoves, species)
 }
 
 async function getSprite(species){
-    const rawSprite = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/Front_Pic_Table.c`)
+    const rawSprite = await fetch(`${main}/data/species/Front_Pic_Table.c`)
     const textSprite = await rawSprite.text()
 
     return await regexSprite(textSprite, species)
 }
 
 async function getReplaceAbilities(species){
-    const rawReplaceAbilities = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/abilities/duplicate_abilities.h`)
+    const rawReplaceAbilities = await fetch(`${main}/data/abilities/duplicate_abilities.h`)
     const textReplaceAbilities = await rawReplaceAbilities.text()
 
     return await regexReplaceAbilities(textReplaceAbilities, species)
@@ -82,7 +82,7 @@ async function getChanges(species, url){
 
     species = await regexChanges(textChanges, species)
 
-    const rawChangesGen9 = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/species/gen9data.txt`)
+    const rawChangesGen9 = await fetch(`${main}/data/species/gen9data.txt`)
     const textChangesGen9 = await rawChangesGen9.text()
 
     return await regexChangesGen9(textChangesGen9, species)
